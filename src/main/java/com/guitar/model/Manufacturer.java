@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedNativeQuery(name = "Manufacturer.getAllThatSellAcoustics", query = "SELECT m.id, m.name, m.foundedDate, m.averageYearlySales, m.location_id as headquarters_id, m.active "
@@ -26,9 +27,10 @@ public class Manufacturer
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long		id;
+	private Long id;
 
-	private String		name;
+	@NotNull
+	private String name;
 
 	@Column(name = "FOUNDEDDATE")
 	private Date		foundedDate;
